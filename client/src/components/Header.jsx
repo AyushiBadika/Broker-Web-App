@@ -6,8 +6,8 @@ export default function Header() {
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to={"/"}>
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-primaryText ">Real</span>
-            <span className="text-SecondaryText ">State</span>
+            <span className="text-primaryText ">My</span>
+            <span className="text-SecondaryText ">Broker</span>
           </h1>
         </Link>
         <form className="flex items-center bg-slate-100 p-3 rounded-lg">
