@@ -47,7 +47,26 @@ export default function Profile() {
       [e.target.id]: e.target.value,
     });
   };
-  const handleDeleteUser = () => {};
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
+
+      const res = await fetch("/api/user/delete", {
+        method: "DELETE",
+      });
+      const data = await res.json();
+
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+
+        return;
+      }
+
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
   const handleSignOut = () => {};
 
   useEffect(() => {
