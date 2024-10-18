@@ -19,6 +19,18 @@ export const getUserListing = async (req, res, next) => {
     next(error);
   }
 };
+export const getListing = async (req, res, next) => {
+  try {
+    const listing = await ListingModel.findById(req.params.id);
+
+    if (!listing) {
+      return next(errorHandler({ statusCode: 404, message: "Listing not found!" }));
+    }
+    res.status(200).json(listing);
+  } catch (error) {
+    next(error);
+  }
+};
 export const deleteListing = async (req, res, next) => {
   const listing = await ListingModel.findById(req.params.id);
 
@@ -48,7 +60,7 @@ export const updateListing = async (req, res, next) => {
     return next(errorHandler({ statusCode: 401, message: "You can only update your own listings" }));
   }
   try {
-    const updatedListing = await ListingModel.findOneAndUpdate(req.params.id, req.body, { new: true });
+    const updatedListing = await ListingModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
     res.status(200).json(updatedListing);
   } catch (error) {
