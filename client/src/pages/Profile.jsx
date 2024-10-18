@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
 import { app } from "../firebase";
-import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserStart } from "../redux/user/userSlice";
+import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserStart, signInFailure, signOutUserSuccess, signOutUserFailure } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 export default function Profile() {
@@ -67,7 +67,23 @@ export default function Profile() {
       dispatch(deleteUserFailure(error.message));
     }
   };
-  const handleSignOut = () => {};
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+
+      const res = await fetch("/api/auth/sign-out");
+      const data = await res.json();
+
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+
+      dispatch(signOutUserSuccess(data));
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
+    }
+  };
 
   useEffect(() => {
     if (file) {
