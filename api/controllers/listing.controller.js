@@ -8,3 +8,13 @@ export const createListing = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getUserListing = async (req, res, next) => {
+  try {
+    const listings = await ListingModel.find({ userRef: req.user.id });
+
+    res.status(200).json(listings);
+  } catch (error) {
+    next(error);
+  }
+};
