@@ -8,6 +8,7 @@ import authRoutes from "./routes/auth.route.js";
 import listingRoutes from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
+import { fileURLToPath } from "url";
 
 mongoose
   .connect(process.env.CONNECTION_STRING)
@@ -22,6 +23,9 @@ const port = process.env.PORT || 3001;
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/listing", listingRoutes);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "/client/dist")));
 
