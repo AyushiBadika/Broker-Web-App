@@ -11,7 +11,6 @@ export const verifyUser = async (req, res, next) => {
       if (err) return next(errorHandler({ statusCode: 401, message: "Unauthorized request!" }));
 
       req.user = user;
-      console.log("user", req.user);
       next();
     });
   } catch (error) {
