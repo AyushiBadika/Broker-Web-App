@@ -3,9 +3,18 @@ import UserModel from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 
 export const getUser = async (req, res) => {
-  res.json({
-    message: "Hello",
-  });
+  try {
+    const user = await UserModel.findById(req.params.id);
+
+    if (!user) {
+      return next(errorHandler(404, "User not found"));
+    }
+
+    const { password: pass, ...rest } = user._doc;
+    res.json(rest);
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const updateUser = async (req, res, next) => {

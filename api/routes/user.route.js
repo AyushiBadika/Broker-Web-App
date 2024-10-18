@@ -4,7 +4,7 @@ import { verifyToken } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
-router.get("/", getUser);
+router.get("/:id", verifyToken, getUser);
 router.post("/update", verifyToken, updateUser);
 router.delete("/delete", verifyToken, deleteUser);
 
