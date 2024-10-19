@@ -26,27 +26,45 @@ Here are screenshots of the key pages in our application:
 
 ### Home Page
 
-![Home Page](https://via.placeholder.com/800x400?text=Home+Page)
+![Home Page](./Images/home-hero-section.png)
+![Recent Rent Listings](./Images/home-recent-rent-section.png)
+![Recent Sale Listing](./Images/home-recent-sale-section.png)
 
 ### Sign In Page
 
-![Sign In Page](https://via.placeholder.com/800x400?text=Sign+In+Page)
+![Sign In Page](./Images/sign-in.png)
 
 ### Sign Up Page
 
-![Sign Up Page](https://via.placeholder.com/800x400?text=Sign+Up+Page)
+![Sign Up Page](./Images/sign-up.png)
 
 ### About Page
 
-![About Page](https://via.placeholder.com/800x400?text=About+Page)
+![About Page](./Images/about.png)
 
 ### Listings Page
 
-![Listings Page](https://via.placeholder.com/800x400?text=Listings+Page)
+![Listings Page](./Images/listing-page.png)
 
 ### Create Listing Page
 
-![Create Listing Page](https://via.placeholder.com/800x400?text=Create+Listing+Page)
+![Create Listing Page](./Images/create-listing.png)
+
+### Edit Listing Page
+
+![Create Listing Page](./Images/edit-listing.png)
+
+### Profile Page
+
+![Create Listing Page](./Images/profile.png)
+
+### Your Listing Page
+
+![Create Listing Page](./Images/your-listings.png)
+
+### Search Result Page
+
+![Create Listing Page](./Images/search-result.png)
 
 ## Installation
 
