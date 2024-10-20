@@ -20,9 +20,9 @@ app.use(express.json());
 app.use(cookieParser());
 const port = process.env.PORT || 3001;
 
-app.use("/user", userRoutes);
-app.use("/auth", authRoutes);
-app.use("/listing", listingRoutes);
+app.use("api/user", userRoutes);
+app.use("api/auth", authRoutes);
+app.use("api/listing", listingRoutes);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
